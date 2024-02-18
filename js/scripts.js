@@ -1,6 +1,6 @@
 
 
-// Add your scripts here
+
 
 function openModal() {
     const sectionContent = document.getElementById('mySection').innerHTML;
@@ -14,12 +14,30 @@ function closeModal() {
 
 
 
-const getName = document.getElementById('name')
-const getNumber = document.getElementById('number')
-const getMail = document.getElementById('mail')
+document.addEventListener('DOMContentLoaded', function () {
+        const getName = document.getElementById('sssss');
+        const getNumber = document.getElementById('number');
+        const getMail = document.getElementById('mail');
+        const btnmodal = document.getElementById('modalll');
 
-const nametext = getName.value;
-const numbers = getNumber.value;
-const mailtext = getMail.value;
-console.log(nametext)
+        getName.addEventListener('input', checkInputs);
+        getNumber.addEventListener('input', checkInputs);
+        getMail.addEventListener('input', checkInputs);
 
+        function checkInputs() {
+            const nameText = getName.value;
+            const check = nameText.length;
+
+            const numbers = getNumber.value;
+            const num = numbers.length;
+
+            const mailtext = getMail.value;
+            const mails = mailtext.length;
+
+            if (check >= 3  && num >= 6 && mails >= 5) {
+                btnmodal.removeAttribute('disabled');
+            } else {
+                btnmodal.setAttribute('disabled', 'disabled');
+            }
+        }
+});

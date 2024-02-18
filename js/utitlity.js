@@ -28,8 +28,15 @@ for (let index = 0; index < seats.length; index++) {
         seatTable.appendChild(newseat);
 
         // add economy class
+        const setbtn = document.getElementById('seat-btn')
+        console.log(setbtn)
+        const h3Elements = seatTable.getElementsByTagName('h3');
+        const numberOfH3Elements = h3Elements.length;
+        console.log(numberOfH3Elements);
 
-
+        if(numberOfH3Elements === 4){
+            setbtn.setAttribute('disabled', 'disabled')
+        }
 
         const classes = document.getElementById('chooseClass');
         const newClass = document.createElement('h2');
