@@ -377,12 +377,14 @@
                                                 id="priceCalculate">0</span></h1>
                                     </div>
                                 </div>
-                                <div id="coupun-section" class="mt-5">
+                                <div id="apply-coupon-section" class="mt-5">
                                     <label class="input flex items-center gap-2">
-                                        <input id="coupon-code" type="text" class="grow px-2 border-none outline-none py-5"
+                                        <input id="coupon-code" type="text"
+                                            class="grow px-2 border-none outline-none py-5"
                                             placeholder="Have any coupon" />
                                         <button
-                                            class="bg-[#1dd100] px-5 py-2 rounded-lg text-white text-lg font-bold cursor-pointer" id="apply-btn">Apply</button>
+                                            class="bg-[#1dd100] px-5 py-2 rounded-lg text-white text-lg font-bold cursor-pointer" disabled
+                                            id="apply-btn">Apply</button>
                                     </label>
                                 </div>
                                 <div class="flex items-center justify-between my-8">
@@ -390,27 +392,28 @@
                                         <h1 class="text-black text-xl font-semibold">Grand Total</h1>
                                     </div>
                                     <div class="">
-                                        <h1 class="text-black text-xl font-semibold">BDT <span id="Discount">0</span></h1>
+                                        <h1 class="text-black text-xl font-semibold">BDT <span id="Discount">0</span>
+                                        </h1>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="">
+                        <div class="passenger-info">
                             <div class="">
                                 <h1 class="text-black text-xl font-semibold my-5">Passenger Name*</h1>
-                                <input class="w-full p-5 text-lg rounded-xl" type="text" placeholder="Enter your name">
+                                <input id="name" class="w-full p-5 text-lg rounded-xl" type="text" placeholder="Enter your name">
                             </div>
                             <div class="">
                                 <h1 class="text-black text-xl font-semibold my-5">Passenger Number*</h1>
-                                <input class="w-full p-5 text-lg rounded-xl" type="number"
+                                <input id="number" class="w-full p-5 text-lg rounded-xl" type="number"
                                     placeholder="Enter your Phone Number">
                             </div>
                             <div class="">
                                 <h1 class="text-black text-xl font-semibold my-5">Passenger Mail*</h1>
-                                <input class="w-full p-5 text-lg rounded-xl" type="text" placeholder="Enter your mail">
+                                <input id="mail" class="w-full p-5 text-lg rounded-xl" type="text" placeholder="Enter your mail">
                             </div>
                             <div class="my-10">
-                                <button
+                                <button  onclick="openModal()"
                                     class="btn w-full bg-[#1DD100] text-white text-xl font-semibold hover:text-[#1DD100]">Next</button>
                             </div>
                         </div>
@@ -429,6 +432,54 @@
     </section>
 
     <!-- ticket-section end here -->
+
+
+
+
+    <!-- modal-section start here -->
+
+
+    <section id="mySection" class="hidden">
+
+        <div
+            class="text-center w-[630px] mx-auto gap-y-4 flex flex-col justify-center items-center bg-white p-20 rounded-xl">
+            <img src="./images/success.png" alt="">
+            <h1 class="text-black">Thank you for Booking Our Bus Seats. </h1>
+            <h2 text-black>We are working hard to find the best service and deals for you. </h2>
+            <p>Shortly you will find a confirmation in your email.</p>
+            <button onclick="closeModal()" id="modal-btn"
+                class="btn w-full bg-[#1DD100] border-none text-white text-xl font-semibold hover:text-[#1DD100]">Continue</button>
+        </div>
+    </section>
+
+    <!-- Modal container -->
+    <div id="myModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div">
+            <div id="modalContent">
+
+            </div>
+    </div>
+    </div>
+
+    <!-- Button to open the modal -->
+    <!-- <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Show Section in Modal</button> -->
+
+    <!-- modal-section end here -->
+
+
+    <section id="modals" class="container mx-auto hidden">
+        <div class=" min-h-screen">
+            <div
+                class="text-center w-[630px] mx-auto gap-y-4 flex flex-col justify-center items-center bg-red-300 p-20 rounded-xl">
+                <img src="./images/success.png" alt="">
+                <h1 class="text-black">Thank you for Booking Our Bus Seats. </h1>
+                <h2 text-black>We are working hard to find the best service and deals for you. </h2>
+                <p>Shortly you will find a confirmation in your email.</p>
+                <button id="modal-btn"
+                    class="btn w-full bg-[#1DD100] border-none text-white text-xl font-semibold hover:text-[#1DD100]">Continue</button>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -470,6 +521,31 @@
         </div>
 
     </section>
+
+
+
+    <!-- <section id="mySection" class="hidden">
+        <div id="modals" class="container mx-auto">
+            <div class="">
+
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4">This is a Section</h2>
+        <p>Section content goes here.</p>
+
+        <div
+            class="text-center w-[630px] mx-auto gap-y-4 flex flex-col justify-center items-center bg-red-300 p-20 rounded-xl">
+            <img src="./images/success.png" alt="">
+            <h1 class="text-black">Thank you for Booking Our Bus Seats. </h1>
+            <h2 text-black>We are working hard to find the best service and deals for you. </h2>
+            <p>Shortly you will find a confirmation in your email.</p>
+            <button id="modal-btn"
+                class="btn w-full bg-[#1DD100] border-none text-white text-xl font-semibold hover:text-[#1DD100]">Continue</button>
+        </div>
+    </section> -->
+
+
 
     <!-- footer-section end here -->
 

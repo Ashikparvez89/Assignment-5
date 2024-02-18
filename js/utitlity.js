@@ -18,19 +18,18 @@ for (let index = 0; index < seats.length; index++) {
         seat.classList.remove('bg-[#e4e7e7]');
         const seatTable = document.getElementById('seat-calculate');
 
-        // const prize = document.getElementById('price');
-        // const prices = parseFloat(prize.innerText);
+        // add seat number
 
-        const getvaluetext = seat.querySelector('h3'); // Assuming you want the first <h3> element inside 'seats'
+        const getvaluetext = seat.querySelector('h3');
         const getinnertext = getvaluetext.innerText;
-        console.log(getinnertext);
-
-        // const sea = document.getElementById('c2');
-
         const newseat = document.createElement('h3');
         newseat.innerText = getinnertext;
         newseat.classList.add('text-[#65686e]', 'text-xl', 'font-semibold');
         seatTable.appendChild(newseat);
+
+        // add economy class
+
+
 
         const classes = document.getElementById('chooseClass');
         const newClass = document.createElement('h2');
@@ -38,6 +37,9 @@ for (let index = 0; index < seats.length; index++) {
         newClass.innerText = cls;
         newClass.classList.add('text-[#65686e]', 'text-xl', 'font-semibold');
         seatTable.appendChild(newClass);
+
+
+        // add price
 
         const pricess = document.getElementById('price');
         const pricesset = pricess.innerText;
@@ -50,19 +52,17 @@ for (let index = 0; index < seats.length; index++) {
 
         // calculate total price
         totalPrice += cash;
-        console.log(totalPrice)
         const getPrice = document.getElementById('priceCalculate');
         const priceTonumber = parseFloat(getPrice.innerText);
         getPrice.innerText = totalPrice;
 
+
         // calculate discount-price
 
         discountprice += cash;
-        console.log(totalPrice)
-        const getdiscountPrice = document.getElementById('Discount');
+        let getdiscountPrice = document.getElementById('Discount');
         const discountpriceTonumber = parseFloat(getdiscountPrice.innerText);
         getdiscountPrice.innerText = discountprice;
-
 
         // seat counter
 
@@ -70,7 +70,6 @@ for (let index = 0; index < seats.length; index++) {
         let count = parseFloat(counts.innerText);
         count = counterr + 1;
         counterr++;
-        console.log(count);
         counts.innerText = count;
 
         // seat balance  
@@ -78,15 +77,12 @@ for (let index = 0; index < seats.length; index++) {
         const balanceSeat = document.getElementById('balance-seat');
         let balances = parseFloat(balanceSeat.innerText);
         balances = decreaser - 1;
-        console.log(balances)
         decreaser--;
         balanceSeat.innerText = balances;
-
     }
+
+
 }
-
-
-// discount-section
 
 
 const discountBtn = document.getElementById('apply-btn');
@@ -96,22 +92,41 @@ discountBtn.addEventListener('click', function () {
     const getcoupon = document.getElementById('coupon-code').value;
     const coupon = getcoupon.toUpperCase();
     console.log(coupon);
-    const couponSection = document.getElementById('coupun-section');
-    console.log(couponSection);
-    if (coupon === 'new20' || coupon === 'couple20') {
-        discountBtn.removeAttribute('disabled')
+    const aplbtn = document.getElementById('apply-btn')
+    const couponSection = document.getElementById('apply-coupon-section');
+    // calculate discount-price
+
+    let getdiscountPrice = document.getElementById('Discount');
+    const discountpriceTonumber = parseFloat(getdiscountPrice.innerText);
+    getdiscountPrice.innerText = discountprice;
+
+
+    if (coupon === 'NEW15' || coupon === 'COUPLE20') {
+
+        aplbtn.classList.add('bg-red-300')
+        aplbtn.removeAttribute('disabled')
+        console.log('this is target text')
     }
-    if (coupon === 'NEW20') {
-        console.log('you get 20 %');
+    if (coupon === 'NEW15') {
         couponSection.classList.add('hidden')
+        const discountAmount = totalPrice * .15;
+        console.log(discountAmount);
+        discountprice = totalPrice - discountAmount;
+        console.log(discountprice);
+        getdiscountPrice.innerText = discountprice;
 
     }
     else if (coupon === 'COUPLE20') {
-        console.log('you get 50%')
         couponSection.classList.add('hidden')
+        const discountAmount = totalPrice * .20;
+        console.log(discountAmount);
+        discountprice = totalPrice - discountAmount;
+        getdiscountPrice.innerText = discountprice;
     }
     else{
-        alert('Please use a vaild coupon')
+        alert(coupon + ' is not a valid coupon')
     }
 })
+
+
 
