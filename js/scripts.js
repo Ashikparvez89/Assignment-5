@@ -10,8 +10,16 @@ function openModal() {
 
 function closeModal() {
     document.getElementById('myModal').classList.add('hidden');
+    clearInputsAndReload()
 }
 
+function clearInputsAndReload() {
+    const inputElements = document.querySelectorAll('input');
+    inputElements.forEach(function(inputElement) {
+        inputElement.value = '';
+    });
+    location.reload();
+}
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -34,10 +42,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const mailtext = getMail.value;
             const mails = mailtext.length;
 
-            if (check >= 3  && num >= 6 && mails >= 5) {
+            if (check >= 3  && num >= 3 && mails >= 3) {
                 btnmodal.removeAttribute('disabled');
             } else {
                 btnmodal.setAttribute('disabled', 'disabled');
             }
         }
 });
+
+
+
